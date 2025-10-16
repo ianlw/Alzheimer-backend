@@ -44,7 +44,7 @@ class Paciente(PacienteBase):
 class UsuarioBase(BaseModel):
     nombre_usuario: str
     nombre_completo: Optional[str] = None
-    especialidad: Optional[str] = None
+    #especialidad: Optional[str] = None
 
 class UsuarioCreate(UsuarioBase):
     contrasena: str = Field(

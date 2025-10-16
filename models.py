@@ -10,7 +10,7 @@ class Usuario(Base):
     nombre_usuario = Column(String, unique=True, index=True, nullable=False)
     contrasena = Column(String, nullable=False)
     nombre_completo = Column(String)
-    especialidad = Column(String)
+    #especialidad = Column(String)
     fecha_creacion = Column(TIMESTAMP, default=datetime.datetime.utcnow)
 
     pacientes = relationship("Paciente", back_populates="doctor")
