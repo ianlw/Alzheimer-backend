@@ -23,6 +23,8 @@ class Paciente(Base):
     nombre = Column(String, nullable=False)
     apellidos = Column(String, nullable=False)
     dni = Column(String, unique=True, index=True, nullable=False)
+    sexo = Column(String, unique=False, index=True, nullable=False)
+    correo = Column(String, unique=True, index=True, nullable=False)
     fecha_nacimiento = Column(Date)
     antecedentes_familiares = Column(Text)
     fecha_registro = Column(TIMESTAMP, default=datetime.datetime.utcnow)

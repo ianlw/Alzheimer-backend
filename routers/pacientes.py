@@ -46,3 +46,17 @@ async def create_analisis(
         paciente_id=paciente_id,
         ruta_imagen_mri=file_path  # Pasamos la ruta real
     )
+
+
+@router.get("/pacientes/{paciente_id}/analisis/", response_model=List[schemas.Analisis])
+def read_analisis_for_paciente(
+    paciente_id: int,
+    db: Session = Depends(get_db),
+    token: str = Depends(auth.oauth2_scheme)
+):
+    """
+    Obtiene el historial de análisis para un paciente específico.
+    """
+    analisis_list = crud.get_analisis_for_paciente(db=db, paciente_id=paciente_id)
+    return analisis_list
+

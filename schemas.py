@@ -26,6 +26,8 @@ class PacienteBase(BaseModel):
     nombre: str
     apellidos: str
     dni: str
+    sexo: str
+    correo: str
     fecha_nacimiento: Optional[date] = None
     antecedentes_familiares: Optional[str] = None
 
