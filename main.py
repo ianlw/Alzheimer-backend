@@ -3,6 +3,7 @@ import models
 from database import engine
 from routers import usuarios, pacientes
 from fastapi.middleware.cors import CORSMiddleware # <--- 1. Importa el middleware
+import ml_model  # <--- 1. IMPORTA TU NUEVO MÓDULO
 
 # Crea las tablas en la base de datos (si no existen)
 # Esta línea es crucial para que SQLAlchemy cree tu archivo .db y las tablas
@@ -13,6 +14,12 @@ app = FastAPI(
     description="Backend para gestionar médicos, pacientes y análisis de MRI.",
     version="1.0.0"
 )
+
+@app.on_event("startup")
+async def startup_event():
+    """Carga el modelo de ML al iniciar el servidor."""
+    print("Iniciando servidor y cargando modelo de ML...")
+    ml_model.load_ml_model()
 
 origins = ["*"]
 
