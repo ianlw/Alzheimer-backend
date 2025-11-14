@@ -14,7 +14,7 @@ def create_usuario(db: Session, usuario: schemas.UsuarioCreate):
         nombre_usuario=usuario.nombre_usuario,
         contrasena=hashed_password,
         nombre_completo=usuario.nombre_completo,
-        especialidad=usuario.especialidad  # <-- Esta línea fue descomentada
+        #especialidad=usuario.especialidad  # <-- Esta línea fue descomentada
     )
     db.add(db_usuario)
     db.commit()
