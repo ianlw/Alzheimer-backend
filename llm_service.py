@@ -7,7 +7,7 @@ from datetime import date
 # Configura la API Key desde las variables de entorno
 # Si estás probando en local y no tienes variables de entorno, puedes pegarla aquí temporalmente,
 # pero en producción (Render) debes usar la variable de entorno.
-GEMINI_API_KEY = os.getenv("AIzaSyD4sLIF1Kujd5HhmDj3Y8P4CkcRLhy4G68")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Usamos gemini-1.5-flash porque es rápido y barato, ideal para esta tarea
